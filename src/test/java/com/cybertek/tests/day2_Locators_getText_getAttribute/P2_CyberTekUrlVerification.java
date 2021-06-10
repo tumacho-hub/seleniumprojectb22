@@ -26,12 +26,22 @@ public class P2_CyberTekUrlVerification {
         String actualUrl = driver.getCurrentUrl();
 
         if (actualUrl.contains(expectedInUrl)){
+            System.out.println("URL verification PASSED");
+        }else{
             System.out.println("URL verification FAILED");
         }
 
 
 //4. Verify title:
-// Expected: Practice
+        // expected : practice
+ String expectedTitle = "Practice";
+        String actualTitle = driver.getTitle();
+
+        if (actualTitle.equals(expectedTitle)){
+            System.out.println("Title verification PASSED");
+        }else{
+            System.out.println("Title verification FAILED");
+        }
 //
 //
 

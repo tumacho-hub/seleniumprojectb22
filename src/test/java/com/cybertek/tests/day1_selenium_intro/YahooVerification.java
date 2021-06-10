@@ -1,4 +1,4 @@
-package com.cybertek.tests.day_1_selenium_intro;
+package com.cybertek.tests.day1_selenium_intro;
 /*
 TC #1: Yahoo Title Verification
 1. Open Chrome browser
@@ -39,7 +39,7 @@ if (actualTitle.equals(expectedTitle)){
     System.out.println("Title is as expected. Verification Failed!");
 }
  // closing the driver
-        driver.close();
+
 
 
 
