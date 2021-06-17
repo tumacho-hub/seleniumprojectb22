@@ -1,35 +1,20 @@
 package com.cybertek.tests.day10_Webtable_Practices;
 
+import com.cybertek.tests.base.TestBase;
 import com.cybertek.utilities.ConfigurationReader;
 import com.cybertek.utilities.TableUtils;
-import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
-
-public class Table_Tasks {
-    WebDriver driver;
-    @BeforeMethod
-    public void setupMethod() {
-
-        String browser = ConfigurationReader.getProperty("browser");
-        // this line is returning String chrome
-        String url = ConfigurationReader.getProperty("dataTableUrl");
-        driver = WebDriverFactory.getDriver(ConfigurationReader.getProperty("browser"));
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.get(url);
-
-      //  driver.get(ConfigurationReader.getProperty("dataTableUrl"));
-    }
 
 
-        @Test
+public class Table_Tasks extends TestBase {
+
+
+
+    @Test
     public void task3_return_tims_due_amount(){
         /*
         // 1. open browser and go to http://practice.cybertekschool.com/tables#edit
@@ -38,7 +23,10 @@ public class Table_Tasks {
         first way to locate the fifty ===>> //table[@id='table1']//td[.='Tim']/../td[4]
         second way to locate the $50 amount ===>> dynamic //table[@id='table1']//td[.='Tim']/following-sibling::td[2]
          */
-
+        // below code is same as above
+        //driver.get(ConfigurationReader.getProperty("dataTablesUrl"));
+            String url = ConfigurationReader.getProperty("dataTableUrl");
+            driver.get(url);
          WebElement timsDueAmountCell =  driver.findElement(By.xpath("//table[@id='table1']//td[.='Tim']/following-sibling::td[2]"));
 
             System.out.println("timsDueAmountCell = " + timsDueAmountCell.getText());
@@ -49,7 +37,17 @@ public class Table_Tasks {
         }
         @Test
         public void task4_return_tims_due_amount(){
+            String url = ConfigurationReader.getProperty("dataTableUrl");
+            driver.get(url);
 
             TableUtils.verifiedOrder(driver,"Tim");
+        }
+        @Test
+    public void task5_print_all_names_and_emails(){
+        String url = ConfigurationReader.getProperty("dataTableUrl");
+            driver.get(url);
+            TableUtils.printNamesAndEmails(driver);
+
+
         }
 }

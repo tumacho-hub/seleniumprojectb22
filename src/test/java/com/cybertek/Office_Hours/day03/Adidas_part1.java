@@ -100,6 +100,7 @@ public class Adidas_part1 {
         driver.findElement(By.id("name")).sendKeys(faker.name().firstName());
         driver.findElement(By.id("country")).sendKeys(faker.country().name());
         driver.findElement(By.id("city")).sendKeys(faker.country().capital());
+        BrowserUtils.sleep(1);
         driver.findElement(By.id("card")).sendKeys(faker.finance().creditCard());
         // for the las line because we using int but expecting a string we can use
         // WRAPPERCLASS  STRING.valueof
